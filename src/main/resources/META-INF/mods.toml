@@ -1,0 +1,26 @@
+modLoader="javafml"
+loaderVersion="[46,)"
+issueTrackerURL="https://github.com/Mrbysco/ASeedlessPlace/issues"
+license="MIT"
+
+[[mods]]
+modId="seedlessplace"
+version="${file.jarVersion}"
+displayName="A Seedless Place"
+displayURL="https://minecraft.curseforge.com/projects/a-seedless-place"
+authors="Mrbysco"
+description='''
+
+'''
+[[dependencies.seedlessplace]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20,1.21)"
+ordering="NONE"
+side="BOTH"
+[[dependencies.seedlessplace]]
+modId="forge"
+mandatory=true
+versionRange="[46.0.1,)"
+ordering="NONE"
+side="BOTH"

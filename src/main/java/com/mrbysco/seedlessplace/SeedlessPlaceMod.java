@@ -5,6 +5,7 @@ import com.mrbysco.seedlessplace.datamap.SeedlessDatamaps;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.context.UseOnContext;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.common.NeoForge;
@@ -27,8 +28,10 @@ public class SeedlessPlaceMod {
 	private void onRightClick(PlayerInteractEvent.RightClickBlock event) {
 		final ItemStack itemStack = event.getItemStack();
 		if (itemStack.isEmpty()) return;
-		final ItemStack replica = itemStack.getItem().builtInRegistryHolder().getData(SeedlessDatamaps.SEED_REPLICAS);
-		if (replica == null || replica.isEmpty()) return;
+		final ItemStackTemplate replicaTemplate = itemStack.getItem().builtInRegistryHolder().getData(SeedlessDatamaps.SEED_REPLICAS);
+		if (replicaTemplate == null) return;
+		ItemStack replica = replicaTemplate.create();
+		if (replica.isEmpty()) return;
 
 		UseOnContext context = new UseOnContext(event.getLevel(), event.getEntity(), event.getHand(), replica, event.getHitVec());
 		InteractionResult result = replica.useOn(context);

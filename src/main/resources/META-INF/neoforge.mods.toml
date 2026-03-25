@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[46,)"
+loaderVersion="[4,)"
 issueTrackerURL="https://github.com/Mrbysco/ASeedlessPlace/issues"
 license="MIT"
 
@@ -7,20 +7,20 @@ license="MIT"
 modId="seedlessplace"
 version="${file.jarVersion}"
 displayName="A Seedless Place"
-displayURL="https://minecraft.curseforge.com/projects/a-seedless-place"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/a-seedless-place"
 authors="Mrbysco"
 description='''
-
+Make crops function like seeds
 '''
 [[dependencies.seedlessplace]]
 modId="minecraft"
-mandatory=true
-versionRange="[1.20,1.21)"
+type="required"
+versionRange="[1.21,1.22)"
 ordering="NONE"
 side="BOTH"
 [[dependencies.seedlessplace]]
-modId="forge"
-mandatory=true
-versionRange="[46.0.1,)"
+modId="neoforge"
+type="required"
+versionRange="[21.1.1,)"
 ordering="NONE"
 side="BOTH"

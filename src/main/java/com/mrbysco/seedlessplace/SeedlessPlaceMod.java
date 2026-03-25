@@ -1,16 +1,14 @@
 package com.mrbysco.seedlessplace;
 
 import com.mojang.logging.LogUtils;
+import com.mrbysco.seedlessplace.datamap.SeedlessDatamaps;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import org.slf4j.Logger;
 
 @Mod(SeedlessPlaceMod.MOD_ID)
@@ -19,19 +17,19 @@ public class SeedlessPlaceMod {
 	public static final Logger LOGGER = LogUtils.getLogger();
 
 	public SeedlessPlaceMod() {
-		IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
-		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SeedlessConfig.commonSpec, "aseedlessplace.toml");
-		eventBus.register(SeedlessConfig.class);
+		NeoForge.EVENT_BUS.addListener(this::onRightClick);
+	}
 
-		MinecraftForge.EVENT_BUS.addListener(this::onRightClick);
+	public static ResourceLocation modLoc(String path) {
+		return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
 	}
 
 	private void onRightClick(PlayerInteractEvent.RightClickBlock event) {
 		final ItemStack itemStack = event.getItemStack();
-		final ItemStack replica = SeedlessConfig.getReplica(itemStack);
-		if (replica.isEmpty()) {
-			return;
-		}
+		if (itemStack.isEmpty()) return;
+		final ItemStack replica = itemStack.getItem().builtInRegistryHolder().getData(SeedlessDatamaps.SEED_REPLICAS);
+		if (replica == null || replica.isEmpty()) return;
+
 		UseOnContext context = new UseOnContext(event.getLevel(), event.getEntity(), event.getHand(), replica, event.getHitVec());
 		InteractionResult result = replica.useOn(context);
 		if (result.consumesAction()) {

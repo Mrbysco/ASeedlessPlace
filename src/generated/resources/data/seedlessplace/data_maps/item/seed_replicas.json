@@ -1,0 +1,16 @@
+{
+  "values": {
+    "minecraft:beetroot": {
+      "count": 1,
+      "id": "minecraft:beetroot_seeds"
+    },
+    "minecraft:melon_slice": {
+      "count": 1,
+      "id": "minecraft:melon_seeds"
+    },
+    "minecraft:wheat": {
+      "count": 1,
+      "id": "minecraft:wheat_seeds"
+    }
+  }
+}

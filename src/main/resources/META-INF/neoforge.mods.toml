@@ -15,12 +15,12 @@ Make crops function like seeds
 [[dependencies.seedlessplace]]
 modId="minecraft"
 type="required"
-versionRange="[1.21,1.22)"
+versionRange="[1.21.11,1.22)"
 ordering="NONE"
 side="BOTH"
 [[dependencies.seedlessplace]]
 modId="neoforge"
 type="required"
-versionRange="[21.1.1,)"
+versionRange="[21.11.0-beta,)"
 ordering="NONE"
 side="BOTH"

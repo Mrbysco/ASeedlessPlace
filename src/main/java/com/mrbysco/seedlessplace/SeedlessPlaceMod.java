@@ -2,7 +2,7 @@ package com.mrbysco.seedlessplace;
 
 import com.mojang.logging.LogUtils;
 import com.mrbysco.seedlessplace.datamap.SeedlessDatamaps;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
@@ -20,8 +20,8 @@ public class SeedlessPlaceMod {
 		NeoForge.EVENT_BUS.addListener(this::onRightClick);
 	}
 
-	public static ResourceLocation modLoc(String path) {
-		return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
+	public static Identifier modLoc(String path) {
+		return Identifier.fromNamespaceAndPath(MOD_ID, path);
 	}
 
 	private void onRightClick(PlayerInteractEvent.RightClickBlock event) {

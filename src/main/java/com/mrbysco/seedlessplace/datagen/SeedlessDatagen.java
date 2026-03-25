@@ -13,7 +13,7 @@ import java.util.concurrent.CompletableFuture;
 @EventBusSubscriber(modid = SeedlessPlaceMod.MOD_ID)
 public class SeedlessDatagen {
 	@SubscribeEvent
-	public static void dataGenEvent(GatherDataEvent event) {
+	public static void dataGenEvent(GatherDataEvent.Client event) {
 		DataGenerator gen = event.getGenerator();
 		PackOutput output = gen.getPackOutput();
 		CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();

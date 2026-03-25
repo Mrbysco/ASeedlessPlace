@@ -9,7 +9,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.registries.datamaps.DataMapType;
 import net.neoforged.neoforge.registries.datamaps.RegisterDataMapTypesEvent;
 
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber
 public class SeedlessDatamaps {
 	public static final DataMapType<Item, ItemStack> SEED_REPLICAS = DataMapType.builder(
 			SeedlessPlaceMod.modLoc("seed_replicas"), Registries.ITEM, ItemStack.CODEC).synced(ItemStack.CODEC, false).build();

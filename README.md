@@ -1,4 +1,4 @@
-[![build](https://github.com/Mrbysco/EXAMPLE/actions/workflows/build.yml/badge.svg)](https://github.com/Mrbysco/EXAMPLE/actions/workflows/build.yml) 
+[![build](https://github.com/Mrbysco/ASeedlessPlace/actions/workflows/build.yml/badge.svg)](https://github.com/Mrbysco/ASeedlessPlace/actions/workflows/build.yml) 
 [![](http://cf.way2muchnoise.eu/versions/1378734.svg)](https://www.curseforge.com/minecraft/mc-mods/a-seedless-place)
 
 # A Seedless place #
